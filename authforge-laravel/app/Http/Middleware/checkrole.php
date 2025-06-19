@@ -11,7 +11,7 @@ class CheckRole
     public function handle(Request $request, Closure $next, string $role): Response
     {
         if (!$request->user() || $request->user()->role !== $role) {
-            abort(403, 'Accès interdit – vous avez pas les droits : ' . $role);
+            abort(403, 'Accès interdit tu as pas les droits : ' . $role);
         }
         return $next($request);
     }
