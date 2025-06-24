@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return 'Welcome bro';
+    return view('welcome');
 });
 
 Route::get('/dashboard', function () {
@@ -19,13 +19,13 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin', function () {
-        return 'Bienvenue, tu es bien connecté en tant que admin';
+        return view('admin');
     })->name('admin.dashboard');
 });
 
 Route::middleware(['auth', 'role:moderator'])->group(function () {
     Route::get('/moderation', function () {
-        return 'Espace pour les modos';
+        return view('moderation');
     })->name('moderation.dashboard');
 });
 
